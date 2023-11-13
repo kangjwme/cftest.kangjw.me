@@ -14,9 +14,9 @@
             <table class="table align-middle mb-0 bg-white">
                 <thead class="bg-white" id="praject-table">
                     <tr>
-                        <th class="text-center" style="width:65px;">方案</th>
-                        <th class="text-center">目標</th>
-                        <th class="text-center">資料中心</th>
+                        <th class="text-center" style="width:65px;">等級</th>
+                        <th class="text-center">網址</th>
+                        <th class="text-center">Colo</th>
                         <th class="text-center">延遲</th>
                     </tr>
                 </thead>
@@ -66,9 +66,11 @@ async function getColo(url) {
 }
 
 (async () => {
+  const airportData = await fetch('cf.json').then(res => res.json());
 
   for (let data of urls) {
     const colo = await getColo(data['url']);
+    const city = airportData[colo[0]] || '';
 
     if (!typeCount[data['type']]) {
       typeCount[data['type']] = 1;
@@ -80,7 +82,7 @@ async function getColo(url) {
       <tr>
         <td class="text-center">${data['type']}</td>
         <td class="text-center">${data['url']}</td>
-        <td class="text-center">${colo[0]}</td>
+        <td class="text-center">${colo[0]} (${city})</td>
         <td class="text-center">${colo[1]}</td>
       </tr>
     `;
