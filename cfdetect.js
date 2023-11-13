@@ -62,12 +62,17 @@ async function fetchAllUrls(urls, airportData) {
     document.querySelector("#result").innerHTML = rows.join('');
   }
 
-(async () => {
-  const serverListResponse = await fetch('server_list.json');
-  const urls = await serverListResponse.json();
-
-  const airportDataResponse = await fetch('cf.json');
-  const airportData = await airportDataResponse.json();
-
-  await fetchAllUrls(urls, airportData);
-})();
+  (async () => {
+    const serverListResponse = await fetch('server_list.json');
+    const urls = await serverListResponse.json();
+    urls.sort((a, b) => a.url.localeCompare(b.url));
+  
+    const airportDataResponse = await fetch('cf.json');
+    const airportData = await airportDataResponse.json();
+  
+    urls.sort((a, b) => {
+      const typeOrder = { Free: 1, Pro: 2, Business: 3, Enterprise: 4 };
+      return typeOrder[a.type] - typeOrder[b.type];
+    });
+    await fetchAllUrls(urls, airportData);
+  })();
