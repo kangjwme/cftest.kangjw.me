@@ -1,6 +1,7 @@
 // script.js
 
 const typeCount = {};
+let isWarpEnabled = false; // 新增一個變數來儲存 Warp 的狀態
 
 async function getColo(url) {
   try {
@@ -8,12 +9,18 @@ async function getColo(url) {
     const response = await fetch("//" + url + "//cdn-cgi/trace");
     const text = await response.text();
 
-    const regex = /colo=([\w]+)/;
-    const match = text.match(regex);
+    const regexColo = /colo=([\w]+)/;
+    const matchColo = text.match(regexColo);
+
+    // 新增檢查 Warp 的程式碼
+    const regexWarp = /warp=([\w]+)/;
+    const matchWarp = text.match(regexWarp);
+    isWarpEnabled = matchWarp && matchWarp[1].toLowerCase() === 'on';
+
     const end = performance.now();
     const duration = end - start;
 
-    return [match[1], Math.round(duration) + ' ms'];
+    return [matchColo[1], Math.round(duration) + ' ms'];
   } catch (error) {
     return "無法偵測";
   }
@@ -23,6 +30,11 @@ async function fetchAllUrls(urls, airportData) {
     // 顯示載入中
     document.querySelector("#result").innerHTML = '<tr><td colspan="4" class="text-center">結果載入中...</td></tr>';
   
+    // 新增判斷是否使用 Warp 的訊息
+    const warpMessage = isWarpEnabled ? "您當前正在使用 Warp" : "您當前未使用 WARP";
+    const warpStatusElement = document.querySelector("#warpStatus");
+    warpStatusElement.innerHTML = `<p style="color: ${isWarpEnabled ? '#008000' : '#FF0000'};">${warpMessage}</p>`;
+
     const promises = urls.map(async (data) => {
       const colo = await getColo(data['url']);
       const city = airportData[colo[0]] || '';
