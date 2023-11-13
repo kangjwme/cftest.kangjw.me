@@ -2,6 +2,9 @@
 
 const typeCount = {};
 let isWarpEnabled = false; // 新增一個變數來儲存 Warp 的狀態
+const PRO_ICON = '✨'; 
+const BIZ_ICON = '❤️';
+const ENTERPRISE_ICON = '🔥';
 
 async function getColo(url) {
   try {
@@ -46,6 +49,7 @@ async function fetchAllUrls(urls, airportData) {
       }
   
       let delayColor = ''; // Default color
+      let currentType = null;
   
       const delay = parseInt(colo[1]);
   
@@ -58,11 +62,14 @@ async function fetchAllUrls(urls, airportData) {
       } else {
         delayColor = '#FF0000'; // Red
       }
+
+      
+      
   
       return `
         <tr>
-          <td class="text-center">${data['type']}</td>
-          <td class="text-center">${data['url']}</td>
+          <td class="text-center">${data['type'] === 'Pro' ? PRO_ICON : ''}${data['type'] === 'Business' ? BIZ_ICON : ''}${data['type'] === 'Enterprise' ? ENTERPRISE_ICON : ''} ${data['type']}</td>
+          <td class="text-center"><a href="//${data['url']}/cdn-cgi/trace" target="_blank">${data['url']}</a></td>
           <td class="text-center"><strong>${colo[0]}</strong> (${city})</td>
           <td class="text-center" style="color: ${delayColor}">${colo[1]}</td>
         </tr>
