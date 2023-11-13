@@ -16,7 +16,7 @@
                     <tr>
                         <th class="text-center" style="width:65px;">等級</th>
                         <th class="text-center">網址</th>
-                        <th class="text-center">Colo</th>
+                        <th class="text-center">來源</th>
                         <th class="text-center">延遲</th>
                     </tr>
                 </thead>
@@ -82,7 +82,7 @@ async function getColo(url) {
       <tr>
         <td class="text-center">${data['type']}</td>
         <td class="text-center">${data['url']}</td>
-        <td class="text-center">${colo[0]} (${city})</td>
+        <td class="text-center"><strong>${colo[0]}</strong> (${city})</td>
         <td class="text-center">${colo[1]}</td>
       </tr>
     `;
