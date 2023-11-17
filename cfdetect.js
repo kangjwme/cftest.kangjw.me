@@ -18,7 +18,12 @@ async function getColo(url) {
     // 新增檢查 Warp 的程式碼
     const regexWarp = /warp=([\w]+)/;
     const matchWarp = text.match(regexWarp);
-    isWarpEnabled = matchWarp && matchWarp[1].toLowerCase() === 'on';
+    isWarpEnabled = matchWarp && matchWarp[1] != 'off';
+    // 新增判斷是否使用 Warp 的訊息
+    const warpMessage = isWarpEnabled ? "您當前正在使用 WARP" : "您當前未使用 WARP";
+    const warpStatusElement = document.querySelector("#warpStatus");
+    warpStatusElement.innerHTML = `<p style="color: ${isWarpEnabled ? '#008000' : '#FF0000'};">${warpMessage}</p>`;
+
 
     const end = performance.now();
     const duration = end - start;
@@ -33,11 +38,7 @@ async function fetchAllUrls(urls, airportData) {
     // 顯示載入中
     document.querySelector("#result").innerHTML = '<tr><td colspan="4" class="text-center">結果載入中...</td></tr>';
   
-    // 新增判斷是否使用 Warp 的訊息
-    const warpMessage = isWarpEnabled ? "您當前正在使用 Warp" : "您當前未使用 WARP";
-    const warpStatusElement = document.querySelector("#warpStatus");
-    warpStatusElement.innerHTML = `<p style="color: ${isWarpEnabled ? '#008000' : '#FF0000'};">${warpMessage}</p>`;
-
+    
     const promises = urls.map(async (data) => {
       const colo = await getColo(data['url']);
       const city = airportData[colo[0]] || '';
