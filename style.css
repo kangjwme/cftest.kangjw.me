@@ -4,7 +4,7 @@ div{
 /* 電腦樣式 */
 @media (min-width: 768px) {
   #cloudfalre_result {
-    width: 500px; /* 設定寬度 */ 
+    width: 100%; /* 設定寬度 */ 
     margin-left: auto;
     margin-right: auto;
     
@@ -13,13 +13,5 @@ div{
   #cloudfalre_result td {
     white-space: nowrap; /* 不換行 */
   }
-}
 
-/* 手機樣式 */  
-@media (max-width: 767px) {
-  #cloudfalre_result {
-    width: 90%; /* 全寬 */
-    margin-left: auto;
-    margin-right: auto;
-  }
 }
