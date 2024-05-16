@@ -1,8 +1,6 @@
 [
-    { "url": "blog.fanyueee.cc", "type": "Free" },
     { "url": "thisisch.net", "type": "Free" },
     { "url": "cdnjs.com", "type": "Pro" },
-    { "url": "webpack.js.org", "type": "Pro" },
     { "url": "nodejs.org", "type": "Pro" },
     { "url": "jsdelivr.com", "type": "Pro" },
     { "url": "nafstore.net", "type": "Business" },
