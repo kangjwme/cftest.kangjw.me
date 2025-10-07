@@ -17,6 +17,5 @@
     { "url": "stackoverflow.com", "type": "Enterprise" },
     { "url": "canva.com", "type": "Enterprise" },
     { "url": "notion.so", "type": "Enterprise" },
-    { "url": "medium.com", "type": "Enterprise" },
-    { "url": "vercel.com", "type": "Enterprise" }
+    { "url": "medium.com", "type": "Enterprise" }
 ]
