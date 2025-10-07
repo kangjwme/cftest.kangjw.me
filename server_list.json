@@ -1,7 +1,5 @@
 [
     { "url": "thisisch.net", "type": "Free" },
-    { "url": "surge.sh", "type": "Free" },
-    { "url": "is-a.dev", "type": "Free" },
     { "url": "cdnjs.com", "type": "Pro" },
     { "url": "nodejs.org", "type": "Pro" },
     { "url": "jsdelivr.com", "type": "Pro" },
@@ -16,11 +14,9 @@
     { "url": "www.cloudflare.com", "type": "Enterprise" },
     { "url": "polestar.com", "type": "Enterprise" },
     { "url": "www.ncr.com", "type": "Enterprise" },
-    { "url": "discordapp.com", "type": "Enterprise" },
     { "url": "stackoverflow.com", "type": "Enterprise" },
     { "url": "canva.com", "type": "Enterprise" },
     { "url": "notion.so", "type": "Enterprise" },
     { "url": "medium.com", "type": "Enterprise" },
-    { "url": "vercel.com", "type": "Enterprise" },
-    { "url": "figma.com", "type": "Enterprise" }
+    { "url": "vercel.com", "type": "Enterprise" }
 ]
