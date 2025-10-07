@@ -1,14 +1,26 @@
 [
     { "url": "thisisch.net", "type": "Free" },
+    { "url": "surge.sh", "type": "Free" },
+    { "url": "is-a.dev", "type": "Free" },
     { "url": "cdnjs.com", "type": "Pro" },
     { "url": "nodejs.org", "type": "Pro" },
     { "url": "jsdelivr.com", "type": "Pro" },
+    { "url": "npmjs.com", "type": "Pro" },
+    { "url": "pypi.org", "type": "Pro" },
     { "url": "nafstore.net", "type": "Business" },
     { "url": "waverhost.com", "type": "Business" },
     { "url": "thetrevorproject.org", "type": "Business" },
     { "url": "voteamerica.com", "type": "Business" },
+    { "url": "shopify.com", "type": "Business" },
+    { "url": "gitlab.com", "type": "Business" },
     { "url": "www.cloudflare.com", "type": "Enterprise" },
     { "url": "polestar.com", "type": "Enterprise" },
     { "url": "www.ncr.com", "type": "Enterprise" },
-    { "url": "discordapp.com", "type": "Enterprise" }
+    { "url": "discordapp.com", "type": "Enterprise" },
+    { "url": "stackoverflow.com", "type": "Enterprise" },
+    { "url": "canva.com", "type": "Enterprise" },
+    { "url": "notion.so", "type": "Enterprise" },
+    { "url": "medium.com", "type": "Enterprise" },
+    { "url": "vercel.com", "type": "Enterprise" },
+    { "url": "figma.com", "type": "Enterprise" }
 ]
